@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { ApolloModule, Apollo } from 'apollo-angular';
 import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,7 @@ export class AppModule {
     httpLink: HttpLink
   ) {
     apollo.create({
-      link: httpLink.create({uri: ''}),
+      link: httpLink.create({uri: 'https://vm8mjvrnv3.lp.gql.zone/graphql'}),
       cache: new InMemoryCache()
     })
   }
